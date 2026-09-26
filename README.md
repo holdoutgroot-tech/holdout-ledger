@@ -32,12 +32,12 @@ The exact trading rules (spec files and code) are **not published**. Their SHA-2
 
 ## Strategies
 
-| Ledger | Description | Recording since |
+| Ledger | Market | Recording since |
 |---|---|---|
-| `mnq_night-v1` | Nasdaq-100 futures, long overnight on filtered nights | 2026-09-24 |
-| `qqq_gap-v1` | QQQ close-to-open, volatility-targeted | 2026-09-24 |
-| `ibs_mr-*` | ETF mean reversion on Internal Bar Strength (3 variants) | 2026-09-21 (externally anchored from 2026-09-24) |
-| `blend-v1` | Overnight futures basket + time-series momentum | 2026-09-28 |
+| `mnq_night-v1` | Nasdaq-100 futures | 2026-09-24 |
+| `qqq_gap-v1` | QQQ | 2026-09-24 |
+| `ibs_mr-*` (3) | QQQ, XLK | 2026-09-21 (externally anchored from 2026-09-24) |
+| `blend-v1` | Futures basket | 2026-09-28 |
 
 Every ledger is published, including the ones that do badly. No ledger is ever deleted. A changed rule gets a new name (`-v2`) and a new chain.
 
