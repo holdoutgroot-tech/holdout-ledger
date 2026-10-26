@@ -6,7 +6,7 @@ A forward record of rule-based trading strategies where **every position is seal
 
 | Path | What it is |
 |---|---|
-| `ledger/<strategy>/commits.jsonl` | One line per session: `{date, commit, prev, ts}`. `commit` is a SHA-256 of the position, a random salt and the previous entry. Published **before** the entry time. |
+| `ledger/<strategy>/commits.jsonl` | One line per session (per weekend for `xyz_wknd-v1`): `{date, commit, prev, ts}`. `commit` is a SHA-256 of the position, a random salt and the previous entry. Published **before** the entry time. |
 | `ledger/<strategy>/reveals/<YYYY-MM>.jsonl` | Positions and salts, published after each month ends. |
 | `ledger/anchors/*.txt` + `.ots` | Chain heads, stamped with [OpenTimestamps](https://opentimestamps.org) into the Bitcoin blockchain. Proves each chain existed at that time. |
 | `ledger/prices/` | The public prices used to score results, captured daily and never overwritten. Their hash is in every anchor. |
@@ -38,6 +38,7 @@ The exact trading rules (spec files and code) are **not published**. Their SHA-2
 | `qqq_gap-v1` | QQQ | 2026-09-24 |
 | `ibs_mr-*` (3) | QQQ, XLK | 2026-09-21 (externally anchored from 2026-09-24) |
 | `blend-v1` | Futures basket | 2026-09-28 |
+| `xyz_wknd-v1` | US single-stock perpetuals on Hyperliquid (trade.xyz), weekends only | 2026-11-01 (one entry per weekend) |
 
 Every ledger is published, including the ones that do badly. No ledger is ever deleted. A changed rule gets a new name (`-v2`) and a new chain.
 
